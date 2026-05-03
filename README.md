@@ -83,7 +83,7 @@ Each Week folder will contain the tasks to be completed most probably the one we
 * ❌ Do NOT delete or modify original class files unnecessarily
 * ✅ Add your solutions in separate files if instructed
 
----
+
 
 ##  Tips for Success
 
@@ -91,7 +91,6 @@ Each Week folder will contain the tasks to be completed most probably the one we
 * Keep commits clean and meaningful
 * Ask questions if you get stuck
 
----
 
 ##  Notes
 
