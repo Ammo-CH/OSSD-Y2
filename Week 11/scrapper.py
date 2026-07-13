@@ -61,10 +61,8 @@ def save_to_file(data, filename):
     with open(filename, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
 
-        # header
         writer.writerow(["Car Name", "Price"])
 
-        # rows
         for item in data:
             writer.writerow([item["name"], item["price"]])
 

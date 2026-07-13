@@ -1,16 +1,15 @@
 import sqlite3
 
 def create_database():
-    
-        
-    conn=sqlite3.connect('app.db')
 
-    cursor=conn.cursor()
+    conn = sqlite3.connect('app.db')
+    cursor = conn.cursor()
 
-    create_table=''' CREATE TABLE users(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    age INTEGER   
+    create_table = '''
+    CREATE TABLE IF NOT EXISTS users(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        age INTEGER
     )
     '''
 
@@ -18,25 +17,24 @@ def create_database():
 
     conn.commit()
     conn.close()
+    
+def add_user(name, age):
+    conn = sqlite3.connect('app.db')
+    cursor = conn.cursor()
 
+    cursor.execute("SELECT * FROM users WHERE name = ?", (name,))
+    existing = cursor.fetchone()
 
-def add_user():
-    conn=sqlite3.connect('app.db')
-    cursor=conn.cursor()
-    insert='INSERT INTO users(name,age) VALUES(?,?)'
-    cursor.execute(insert, ("Ali", 23))
-    conn.commit()
+    if existing:
+        print("User already exists!")
+    else:
+        cursor.execute("INSERT INTO users(name, age) VALUES(?, ?)", (name, age))
+        conn.commit()
+
     conn.close()
 
 
+create_database()   
+add_user("ali", 20)        
 
-
-
-
-
-
-
-
-
-
-
+print("Database ready and user added successfully")

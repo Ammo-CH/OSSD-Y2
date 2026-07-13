@@ -24,9 +24,6 @@ root = tk.Tk()
 root.title("Simple Calculator")
 root.geometry("300x300")
 
-#Widgets
-
-# Inputs
 tk.Label(root, text="Enter first number").pack()
 entry1 = tk.Entry(root)
 entry1.pack()
@@ -35,13 +32,11 @@ tk.Label(root, text="Enter second number").pack()
 entry2 = tk.Entry(root)
 entry2.pack()
 
-# Buttons
 tk.Button(root, text="Add", command=lambda: calculate("add")).pack(pady=5)
 tk.Button(root, text="Subtract", command=lambda: calculate("sub")).pack(pady=5)
 tk.Button(root, text="Multiply", command=lambda: calculate("mul")).pack(pady=5)
 tk.Button(root, text="Divide", command=lambda: calculate("div")).pack(pady=5)
 
-# Result
 result_label = tk.Label(root, text="Result: ")
 result_label.pack(pady=10)
 
